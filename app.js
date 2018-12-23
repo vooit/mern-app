@@ -1,18 +1,23 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
-import logger from 'morgan';
+// import logger from 'morgan';
 import mongoose from 'mongoose';
 import SourceMapSupport from 'source-map-support';
 // import routes
-import todoRoutes from './routes/user.server.route';
+import userRoutes from './routes/user.server.route';
 // define our app using express
 const app = express();
 // allow-cors
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
+    res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
+    if (req.method === 'OPTIONS') {
+        res.send(200);
+    } else {
+        next();
+    }
 })
 // configure app
 // app.use(logger('dev'));
@@ -28,7 +33,7 @@ mongoose.connect('mongodb://localhost/mern-todo-app', {
 });
 // add Source Map Support
 SourceMapSupport.install();
-app.use('/api', todoRoutes);
+app.use('/api', userRoutes);
 app.get('/', (req,res) => {
     return res.end('Api working');
 })
