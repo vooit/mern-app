@@ -4,11 +4,10 @@ import bodyParser from 'body-parser';
 // import logger from 'morgan';
 import mongoose from 'mongoose';
 import SourceMapSupport from 'source-map-support';
-// import routes
 import userRoutes from './routes/user.server.route';
-// define our app using express
+
 const app = express();
-// allow-cors
+
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -19,7 +18,6 @@ app.use(function(req,res,next){
         next();
     }
 })
-// configure app
 // app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
@@ -29,7 +27,7 @@ const port = process.env.PORT || 3001;
 // connect to database
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/mern-todo-app', {
-    useMongoClient: true,
+    useMongoClient: true
 });
 // add Source Map Support
 SourceMapSupport.install();
