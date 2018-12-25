@@ -4,14 +4,14 @@ import App from '../components/App';
 
 const mapStateToProps = (state) => {
     return {
-        //you can now say this.props.mappedAppSate
+        //or this.props.mappedAppSate
         mappedAppState: state.appState
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        //you can now say this.props.mappedAppActions
+        //or this.props.mappedAppActions
         mappedToggleAddTodo: () => dispatch(appActions.toggleAddUser())
     }
 }

@@ -4,90 +4,90 @@ export const toggleAddUser = () => {
         type: 'TOGGLE_ADD_USER'
     }
 }
-export const addNewTodo = (todo) => {
+export const addNewUser = (user) => {
 }
-export const deleteTodo = (todo) => {
+export const deleteUser = (user) => {
 }
-export const editTodo = (todo) => {
+export const editUser = (user) => {
 }
-//Async action
-export const fetchTodos = () => {
-    // Returns a dispatcher function
-    // that dispatches an action at later time
+
+export const fetchUsers = () => {
+
+
     return (dispatch) => {
-        dispatch(fetchTodosRequest());
-        // Returns a promise
+        dispatch(fetchUsersRequest());
+
         return fetch(apiUrl)
             .then(response => {
-                if(response.ok){
+                if (response.ok) {
                     response.json().then(data => {
-                        dispatch(fetchTodosSuccess(data.todos,data.message));
+                        dispatch(fetchUsersSuccess(data.users, data.message));
                     })
                 }
-                else{
+                else {
                     response.json().then(error => {
-                        dispatch(fetchTodosFailed(error));
+                        dispatch(fetchUsersFailed(error));
                     })
                 }
             })
     }
 }
-export const fetchTodosRequest = () => {
+export const fetchUsersRequest = () => {
     return {
-        type:'FETCH_TODOS_REQUEST'
+        type: 'FETCH_USERS_REQUEST'
     }
 }
-//Sync action
-export const fetchTodosSuccess = (todos,message) => {
+
+export const fetchUsersSuccess = (users, message) => {
     return {
-        type: 'FETCH_TODOS_SUCCESS',
-        todos: todos,
+        type: 'FETCH_USERS_SUCCESS',
+        users: users,
         message: message,
         receivedAt: Date.now
     }
 }
-export const fetchTodosFailed = (error) => {
+export const fetchUsersFailed = (error) => {
     return {
-        type:'FETCH_TODOS_FAILED',
+        type: 'FETCH_USER_FAILED',
         error
     }
 }
-export const fetchTodoById = (todoId) => {
+export const fetchUserById = (userId) => {
     return (dispatch) => {
-        dispatch(fetchTodoRequest());
-        // Returns a promise
-        return fetch(apiUrl + todoId)
-            .then(response => {console.log(response)
-                if(response.ok){
+        dispatch(fetchUserRequest());
+        return fetch(apiUrl + userId)
+            .then(response => {
+                console.log(response);
+                if (response.ok) {
                     response.json().then(data => {
-                        dispatch(fetchTodoSuccess(data.todo[0], data.message));
+                        dispatch(fetchUserSuccess(data.user[0], data.message));
                     })
                 }
-                else{
+                else {
                     response.json().then(error => {
-                        dispatch(fetchTodoFailed(error));
+                        dispatch(fetchUserFailed(error));
                     })
                 }
             })
     }
 }
-export const fetchTodoRequest = () => {
+export const fetchUserRequest = () => {
     return {
-        type:'FETCH_TODO_REQUEST'
+        type: 'FETCH_USER_REQUEST'
     }
 }
-//Sync action
-export const fetchTodoSuccess = (todo,message) => {
+
+export const fetchUserSuccess = (user, message) => {
     return {
-        type: 'FETCH_TODO_SUCCESS',
-        todo: todo,
+        type: 'FETCH_USER_SUCCESS',
+        user: user,
         message: message,
         receivedAt: Date.now
     }
 }
-export const fetchTodoFailed = (error) => {
+export const fetchUserFailed = (error) => {
     return {
-        type:'FETCH_TODO_FAILED',
+        type: 'FETCH_USER_FAILED',
         error
     }
 }

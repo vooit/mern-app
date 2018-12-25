@@ -22,7 +22,8 @@ export default class App extends Component {
                 <NavBar></NavBar>
                 <Provider store={store}>
                     <div>
-                        <Router history={history} routes={routes}/>
+                        <Router history={history}
+                                routes={routes}/>
                     </div>
                 </Provider>
             </div>
