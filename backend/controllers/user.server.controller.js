@@ -23,7 +23,7 @@ export const addUser = (req, res) => {
 export const updateUser = (req, res) => {
     User.findOneAndUpdate({_id: req.body.id}, req.body, {new: true}, (err, usr) => {
         if (err) {
-            return res.json({'success': false, 'message': 'Some Error', 'error': err});
+            return res.json({'success': false, 'message': 'Update Error', 'error': err});
         }
         console.log(usr);
         return res.json({'success': true, 'message': 'Updated successfully', usr});
@@ -44,11 +44,11 @@ export const getUser = (req, res) => {
     })
 }
 export const deleteUser = (req, res) => {
-    user.findByIdAndRemove(req.params.id, (err, usr) => {
+    User.(req.params.id, (err, usr) => {
         if (err) {
-            return res.json({'success': false, 'message': 'Some Error'});
+            return res.json({'success': false, 'message': 'Delete failed'});
         }
-        console.log(usr);
+        console.log(ufindByIdAndRemovesr);
         return res.json({'success': true, 'message': usr.firstName + ' deleted successfully'});
     })
 }
