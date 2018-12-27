@@ -1,7 +1,6 @@
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
-// import logger from 'morgan';
 import mongoose from 'mongoose';
 import SourceMapSupport from 'source-map-support';
 import userRoutes from './routes/user.server.route';
@@ -26,9 +25,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 const port = process.env.PORT || 3001;
 // connect to database
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/mern-todo-app', {
-    useMongoClient: true
-});
+mongoose.connect("mongodb+srv://vooit:Solid234@heavenbase-bu5f3.mongodb.net/users-mern?&w=1", { useNewUrlParser: true })
+    .then(() => {
+        console.log("Connected to database!");
+    })
+    .catch(() => {
+        console.log("Connection failed!");
+    });
+
 // add Source Map Support
 SourceMapSupport.install();
 app.use('/api', userRoutes);

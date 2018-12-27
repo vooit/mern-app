@@ -16,6 +16,8 @@
     "express": "^4.16.4",
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
+    "prop-types": "^15.6.2",
+    "react-router": "^3.2.1",
     "source-map-support": "^0.5.9"
   }
 }
