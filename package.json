@@ -17,8 +17,10 @@
     "mongoose": "^5.4.0",
     "morgan": "^1.9.1",
     "prop-types": "^15.6.2",
-    "react-router": "^3.2.1",
-    "react-router-dom": "^4.3.1",
+    "proptypes": "^1.1.0",
     "source-map-support": "^0.5.9"
+  },
+  "devDependencies": {
+    "create-react-class": "^15.6.3"
   }
 }

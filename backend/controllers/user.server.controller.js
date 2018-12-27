@@ -44,11 +44,11 @@ export const getUser = (req, res) => {
     })
 }
 export const deleteUser = (req, res) => {
-    User.(req.params.id, (err, usr) => {
+    User.findByIdAndRemove(req.params.id, (err, usr) => {
         if (err) {
             return res.json({'success': false, 'message': 'Delete failed'});
         }
-        console.log(ufindByIdAndRemovesr);
+        console.log(usr);
         return res.json({'success': true, 'message': usr.firstName + ' deleted successfully'});
     })
 }
