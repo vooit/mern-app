@@ -1,4 +1,5 @@
 import api from '../api/api';
+import {loadUsersSuccess} from './userActions'
 
 export function loadUsers() {
     return function (dispatch) {
