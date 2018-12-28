@@ -5,7 +5,7 @@ class User extends React.Component {
     render() {
         return (
             <div className="col-md-8 col-md-offset-2">
-                <h1>first name: {this.props.user.firstName}</h1>
+                <p>first name: {this.props.user.firstName}</p>
                 <p>last name: {this.props.user.lastName}</p>
                 <p>email: {this.props.user.email}</p>
             </div>

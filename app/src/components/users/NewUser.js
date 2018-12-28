@@ -7,23 +7,23 @@ class NewUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: {firstName: '', lastName: '', email: '', eventDate: '',},
+            user: {firstName: '', lastName: '', email: ''},
             saving: false
         };
         this.saveUser = this.saveUser.bind(this);
-        this.updateUsersState = this.updateUsersState.bind(this);
+        // this.updateUsersState = this.updateUsersState.bind(this);
     }
 
     updateUserState(event) {
-        const field = event.target.name;
-        const user = this.state.user;
-        user[field] = event.target.value;
-        return this.setState({user: user});
+        // const field = event.target.name;
+        // const user = this.state.user;
+        // user[field] = event.target.value;
+        // return this.setState({user: user});
     }
 
     saveUser(event) {
         event.preventDefault();
-        this.props.actions.createUser(this.state.user)
+        // this.props.actions.createUser(this.state.user)
     }
 
     render() {
@@ -32,8 +32,7 @@ class NewUser extends React.Component {
                 <h1>new user</h1>
                 <Form
                     user={this.state.user}
-                    onSave={this.saveUser}
-                    onChange={this.updateUserState}
+
                 />
             </div>
         );
