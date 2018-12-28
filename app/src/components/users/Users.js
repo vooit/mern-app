@@ -8,15 +8,6 @@ import * as userActions from '../../actions/userActions';
 
 class Users extends React.Component {
 
-
-    componentDidMount() {
-        this.getUsersList();
-    }
-
-
-    getUsersList = users => [...this.props.users];
-
-
     render() {
         return (
             <div>

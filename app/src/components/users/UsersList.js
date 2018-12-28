@@ -2,16 +2,21 @@ import React from 'react';
 
 const UsersList = ({users}) => {
 
-    console.log(users)
+    console.log(users.users);
+
+
+    let usersList = users.users ?
+        users.users.map((user, index) =>
+            <li
+                key={index}>
+                {user.firstName}, {user.lastName}
+            </li>
+        ) : <span>no results fetched</span>;
+
+
     return (
         <ul>
-            {
-                users.map(user =>
-                <li className="list-group-item"
-                    key={user.id}>
-                    {user.firstName}
-                </li>)
-            }
+            {usersList}
         </ul>
     );
 };
