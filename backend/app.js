@@ -17,13 +17,13 @@ app.use(function(req,res,next){
         next();
     }
 })
-// app.use(logger('dev'));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 3001;
-// connect to database
+
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb+srv://vooit:Solid234@heavenbase-bu5f3.mongodb.net/users-mern?&w=1", { useNewUrlParser: true })
     .then(() => {
@@ -33,8 +33,9 @@ mongoose.connect("mongodb+srv://vooit:Solid234@heavenbase-bu5f3.mongodb.net/user
         console.log("Connection failed!");
     });
 
-// add Source Map Support
 SourceMapSupport.install();
+
+
 app.use('/api', userRoutes);
 app.get('/', (req,res) => {
     return res.end('Api working');
