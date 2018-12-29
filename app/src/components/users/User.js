@@ -17,11 +17,9 @@ class User extends React.Component {
 
 function mapStateToProps(state, ownProps) {
 
-    // let user = {firstName: '', lastName: '', email: ''};
     const userId = ownProps.params.id;
-    // console.log(state.users.find(user => user._id == userId));
-    let user = state.users.find(user => user._id == userId);
-    console.log(user)
+    let user = state.users.find(user => user._id === userId);
+    console.log(user);
     // if (userId && state.users.length > 0) {
     // user = Object.assign({}, state.users.find(user => user._id == userId);
     // }
