@@ -10,8 +10,8 @@ export default (
     <Route path="/" component={App}>
         <IndexRoute component={HomePage}/>
         <Route path="/users" component={Users}>
-            {/*<Route path="/users/:id" component={User}/>*/}
-            <Route path="/users/new" component={NewUser} />
+            <Route path="/users/new" component={NewUser}/>
+            <Route path="/users/:id" component={User}/>
 
         </Route>
     </Route>

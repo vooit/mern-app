@@ -33,26 +33,6 @@ class Users extends React.Component {
     }
 }
 
-//
 const mapStateToProps = (state, ownProps) => ({users: state.users});
 
 export default connect(mapStateToProps)(Users);
-
-//
-// function mapStateToProps(state, ownProps) {
-//     // if (state.users.length > 0) {
-//         return {
-//             users: state.users
-//         };
-//     // } else {
-//     //     return {
-//     //         users: [{id: '', firstName: '', lastName: '', email: ''}]
-//     //     }
-//     // }
-// }
-//
-// function mapDispatchToProps(dispatch) {
-//     return {actions: bindActionCreators(actions, dispatch)}
-// }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(Users);
