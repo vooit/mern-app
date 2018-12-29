@@ -6,3 +6,6 @@ export function loadUsersSuccess(users) {
 }
 
 
+export function createUserSuccess(user) {
+    return {type: types.CREATE_USER_SUCCESS, user}
+}

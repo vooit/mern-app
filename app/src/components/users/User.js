@@ -9,6 +9,7 @@ class User extends React.Component {
                 <p>first name: {this.props.user.firstName}</p>
                 <p>last name: {this.props.user.lastName}</p>
                 <p>email: {this.props.user.email}</p>
+                <p>event date: {this.props.user.eventDate}</p>
             </div>
         );
     }

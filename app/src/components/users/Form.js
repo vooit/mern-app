@@ -2,6 +2,21 @@ import React from 'react';
 import TextInput from './TextInput';
 
 class Form extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            user: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                eventDate: ''
+            },
+            saving: false
+        };
+        this.redirect = this.redirect.bind(this);
+        this.saveUser = this.saveUser.bind(this);
+    }
+
 
     render() {
 
@@ -11,20 +26,20 @@ class Form extends React.Component {
                     <TextInput
                         name="firstName"
                         label="First Name"
-                        /*value={this.props.user.firstName}
-                        onChange={this.props.onChange}*/ />
+                        value={this.props.user.firstName}
+                        onChange={this.props.onChange} />
 
                     <TextInput
                         name="lastName"
                         label="Last Name"
-                        /*value={this.props.user.lastName}
-                        onChange={this.props.onChange}*/ />
+                        value={this.props.user.lastName}
+                        onChange={this.props.onChange} />
 
                     <TextInput
                         name="email"
                         label="Email"
-                        /*value={this.props.user.email}
-                        onChange={this.props.onChange}*/ />
+                        value={this.props.user.email}
+                        onChange={this.props.onChange}/>
                     <input
                         type="submit"
                         className="btn btn-primary"
