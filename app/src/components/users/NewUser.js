@@ -13,8 +13,9 @@ class NewUser extends React.Component {
                 firstName: '',
                 lastName: '',
                 email: '',
-                eventDate:  ''
+                eventDate: ''
             },
+            isValid: false,
             saving: false
         };
         this.saveUser = this.saveUser.bind(this);
@@ -22,15 +23,39 @@ class NewUser extends React.Component {
     }
 
     saveUser(event) {
+        console.log('save action');
         event.preventDefault();
         this.props.actions.postUser(this.state.user);
     }
+
+    validator = {
+        validateEmail(state) {
+            if (state.length && state.indexOf("@") !== -1) {
+                return true
+            }
+            else return false
+        },
+        validateString(state) {
+            if (state.length) {
+                return true
+            }
+            else return false
+        }
+    };
+
 
     updateUserState(event) {
         const field = event.target.name;
         let user = this.state.user;
         user[field] = event.target.value;
         this.setState({user: user});
+        if (this.validator.validateString(this.state.user.firstName) &&
+            this.validator.validateString(this.state.user.lastName) &&
+            this.validator.validateEmail(this.state.user.email)
+        ) {
+            this.setState({isValid: true})
+            console.log(this.state.isValid);
+        }
     }
 
     render() {
@@ -41,6 +66,7 @@ class NewUser extends React.Component {
                     user={this.state.user}
                     onSave={this.saveUser}
                     saving={this.state.saving}
+                    valid={this.state.isValid}
                     onChange={this.updateUserState}
                 />
                 {this.state.user.firstName}

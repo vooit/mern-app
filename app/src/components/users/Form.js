@@ -30,11 +30,12 @@ class Form extends React.Component {
                     <input
                         type="submit"
                         className="btn btn-primary"
-                        disabled={this.props.saving}
+                        disabled={!this.props.valid}
                         value={this.props.saving ? 'Saving...' : 'Save'}
                         onClick={this.props.onSave}/>
-                </form>
 
+                </form>
+              <p>is Valid  {this.props.valid}</p>
 
             </div>
         );

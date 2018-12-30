@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {deleteUser} from '../../actions/usersActions'
+import * as actions from '../../actions/usersActions'
 
 class User extends React.Component {
     constructor(props, context) {
@@ -14,7 +14,7 @@ class User extends React.Component {
 
     onDeleteUser(user) {
         console.log(user)
-        this.deleteUser(this.state.user)
+        this.props.actions.deleteUser(this.state.user)
     }
 
     render() {
@@ -44,6 +44,7 @@ function mapStateToProps(state, ownProps) {
     if (userId && state.users.length > 0) {
         user = state.users.find(user => user._id === userId);
     }
+    console.log(user)
     return {user: user};
 }
 
