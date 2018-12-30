@@ -16,6 +16,7 @@ class NewUser extends React.Component {
                 eventDate: ''
             },
             isValid: false,
+            isEmailValid: false,
             saving: false
         };
         this.saveUser = this.saveUser.bind(this);
@@ -49,6 +50,13 @@ class NewUser extends React.Component {
         let user = this.state.user;
         user[field] = event.target.value;
         this.setState({user: user});
+        if (user['email'].length > 1 &&
+            user['email'].indexOf("@") === -1) {
+            this.setState({isEmailValid: true})
+        }
+        else {
+            this.setState({isEmailValid: false})
+        }
         if (this.validator.validateString(this.state.user.firstName) &&
             this.validator.validateString(this.state.user.lastName) &&
             this.validator.validateEmail(this.state.user.email)
@@ -64,9 +72,10 @@ class NewUser extends React.Component {
                 <h1>new user</h1>
                 <Form
                     user={this.state.user}
-                    onSave={this.saveUser}
                     saving={this.state.saving}
+                    emailValid={this.state.isEmailValid}
                     valid={this.state.isValid}
+                    onSave={this.saveUser}
                     onChange={this.updateUserState}
                 />
                 {this.state.user.firstName}

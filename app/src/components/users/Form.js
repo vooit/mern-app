@@ -3,6 +3,9 @@ import TextInput from './TextInput';
 
 
 class Form extends React.Component {
+    constructor(props) {
+        super(props)
+    }
 
     render() {
 
@@ -26,6 +29,7 @@ class Form extends React.Component {
                         label="Email"
                         value={this.props.user.email}
                         onChange={this.props.onChange}/>
+                    {this.props.emailValid ? <span className="alert alert-danger">Email is required an must contain "@"</span> :  null}
                     <br/>
                     <input
                         type="submit"
@@ -35,7 +39,7 @@ class Form extends React.Component {
                         onClick={this.props.onSave}/>
 
                 </form>
-              <p>is Valid  {this.props.valid}</p>
+                <p>is Valid {this.props.valid}</p>
 
             </div>
         );
