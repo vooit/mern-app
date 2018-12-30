@@ -17,13 +17,13 @@ class User extends React.Component {
 
 function mapStateToProps(state, ownProps) {
 
+    let user = {firstName: '', lastName: '', email: '', eventDate: ''};
     const userId = ownProps.params.id;
-    let user = state.users.find(user => user._id === userId);
-    console.log(user);
-    // if (userId && state.users.length > 0) {
-    // user = Object.assign({}, state.users.find(user => user._id == userId);
-    // }
+    if (userId && state.users.length > 0) {
+        user = state.users.find(user => user._id === userId);
+    }
     return {user: user};
 }
+
 
 export default connect(mapStateToProps)(User);

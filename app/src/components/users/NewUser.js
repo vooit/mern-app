@@ -13,7 +13,7 @@ class NewUser extends React.Component {
                 firstName: '',
                 lastName: '',
                 email: '',
-                eventDate: null
+                eventDate:  ''
             },
             saving: false
         };
@@ -28,14 +28,12 @@ class NewUser extends React.Component {
 
     saveUser(event) {
         event.preventDefault();
-        console.log('save user action')
-        // this.props.actions.createUser(this.state.user)
+        this.props.actions.createUser(this.state.user);
         this.redirect()
     }
 
     updateUserState(event) {
         const field = event.target.name;
-        console.log(field)
         let user = this.state.user;
         user[field] = event.target.value;
         this.setState({user: user});
