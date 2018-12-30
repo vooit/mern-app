@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Form from './Form';
-import * as actions from '../../actions/userActions';
+import * as actions from '../../actions/usersActions';
 
 class NewUser extends React.Component {
 
@@ -17,19 +17,13 @@ class NewUser extends React.Component {
             },
             saving: false
         };
-        this.redirect = this.redirect.bind(this);
         this.saveUser = this.saveUser.bind(this);
         this.updateUserState = this.updateUserState.bind(this);
     }
 
-    redirect() {
-        console.log('redirect');
-    }
-
     saveUser(event) {
         event.preventDefault();
-        this.props.actions.createUser(this.state.user);
-        this.redirect()
+        this.props.actions.postUser(this.state.user);
     }
 
     updateUserState(event) {

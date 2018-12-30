@@ -13,6 +13,15 @@ export default function userReducer(state = initialState.users, action) {
                 ...state.filter(user => user._id !== action.user._id),
                 Object.assign({}, action.user)
             ]
+        case types.DELETE_USER_SUCCESS: {
+            const newState = Object.assign([], state);
+            const indexOfUserToDelete = state.findIndex(user => {
+                return user.id === action.user.id
+            })
+            newState.splice(indexOfUserToDelete, 1);
+            // browserHistory.push('/users');
+            return newState;
+        }
         default:
             return state;
     }
