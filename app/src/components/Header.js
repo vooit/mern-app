@@ -8,8 +8,10 @@ const Header = () => {
 
         <AppBar position="static">
             <Toolbar>
-                <IndexLink to="/" activeClassName="active">Home</IndexLink>
-                <Link to="/users" activeClassName="active">Users</Link>
+                <IndexLink to="/" activeClassName="active">
+                    <span className="btn btn-success">Home</span>
+                </IndexLink>
+                <Link to="/users" activeClassName="active">  <span className="btn btn-success ml-4">Users</span></Link>
             </Toolbar>
         </AppBar>
     );

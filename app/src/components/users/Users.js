@@ -19,7 +19,7 @@ class Users extends React.Component {
                     <div className="col-md-6">
                         <h1>Users
                             <Link to={'/users/new'}
-                                  className="btn btn-primary">+ cat</Link>
+                                  className="btn btn-primary ml-4">add new user</Link>
                         </h1>
                         <UsersList users={users}/>
                     </div>
