@@ -12,7 +12,7 @@ app.use(function(req,res,next){
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     if (req.method === 'OPTIONS') {
-        res.send(200);
+        res.sendStatus(200);
     } else {
         next();
     }
@@ -39,12 +39,12 @@ SourceMapSupport.install();
 app.use('/api', userRoutes);
 app.get('/', (req,res) => {
     return res.end('Api working');
-})
-// catch 404
+});
+
 app.use((req, res, next) => {
     res.status(404).send('<h2 align=center>Page Not Found!</h2>');
 });
-// start the server
+
 app.listen(port,() => {
     console.log(`App Server Listening at ${port}`);
 });
