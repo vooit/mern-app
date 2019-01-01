@@ -27,6 +27,17 @@ class Datepicker extends React.Component {
     };
 
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.state.date !== nextState.date) {
+            console.log('dueDate:  ', nextState.date);
+            this.setState({transformedDate: nextState.date.format('YYYY-MM-DD')});
+            this.props.onChange(this.state.transformedDate);
+
+        }
+        return true
+
+    }
+
     render() {
         return (
             <SingleDatePicker
