@@ -8,12 +8,11 @@ class User extends React.Component {
         this.state = {
             user: this.props.user,
         };
-        console.log(this.state.user)
         this.onDeleteUser = this.onDeleteUser.bind(this);
     }
 
-    onDeleteUser(user) {
-        console.log(user)
+    onDeleteUser() {
+        console.log(this.state.user)
         this.props.actions.deleteUser(this.state.user)
     }
 

@@ -15,8 +15,8 @@ class Form extends React.Component {
     }
 
     handleDateChange(date) {
-        console.log(date)
         this.setState({date: date})
+        this.props.user.eventDate = this.state.date
     }
 
     render() {
@@ -24,8 +24,30 @@ class Form extends React.Component {
         return (
             <div className="col-12">
                 <form>
+
+                    <TextInput
+                        name="firstName"
+                        label="First Name"
+                        value={this.props.user.firstName}
+                        onChange={this.props.onChange}/>
+
+                    <TextInput
+                        name="lastName"
+                        label="Last Name"
+                        value={this.props.user.lastName}
+                        onChange={this.props.onChange}/>
+
+                    <TextInput
+                        name="email"
+                        label="Email"
+                        value={this.props.user.email}
+                        onChange={this.props.onChange}/>
+                    {this.props.emailValid ?
+                        <span className="alert alert-danger">Email is required an must contain "@"</span> : null}
+                    <br/>
                     <SingleDatePicker
                         // showClearDate={true}
+
                         customInputIcon={
                             <img src="https://image.flaticon.com/icons/svg/747/747310.svg"
                                  width="20"
@@ -46,25 +68,6 @@ class Form extends React.Component {
                         openDirection="up"
                         hideKeyboardShortcutsPanel={true}
                     />
-                    <TextInput
-                        name="firstName"
-                        label="First Name"
-                        value={this.props.user.firstName}
-                        onChange={this.props.onChange}/>
-
-                    <TextInput
-                        name="lastName"
-                        label="Last Name"
-                        value={this.props.user.lastName}
-                        onChange={this.props.onChange}/>
-
-                    <TextInput
-                        name="email"
-                        label="Email"
-                        value={this.props.user.email}
-                        onChange={this.props.onChange}/>
-                    {this.props.emailValid ?
-                        <span className="alert alert-danger">Email is required an must contain "@"</span> : null}
                     <br/>
                     <input
                         type="submit"

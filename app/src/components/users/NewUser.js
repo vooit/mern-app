@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import Form from './Form';
 import * as actions from '../../actions/usersActions';
-// import FormValidator from '../utils/FormValidator';
-
 class NewUser extends React.Component {
+
     constructor(props) {
         super(props);
         this.state = {
