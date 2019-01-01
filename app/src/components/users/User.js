@@ -12,7 +12,7 @@ class User extends React.Component {
     }
 
     onDeleteUser() {
-        console.log(this.state.user)
+        console.log(this.state.user);
         this.props.actions.deleteUser(this.state.user)
     }
 
@@ -43,7 +43,6 @@ function mapStateToProps(state, ownProps) {
     if (userId && state.users.length > 0) {
         user = state.users.find(user => user._id === userId);
     }
-    console.log(user)
     return {user: user};
 }
 
