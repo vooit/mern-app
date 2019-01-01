@@ -9,8 +9,7 @@ export default function userReducer(state = initialState.users, action) {
             return action.users;
         case types.CREATE_USER_SUCCESS:
             const newUser = action.user.user;
-            console.log(action.user.user._id)
-            browserHistory.push(`/users/`);
+            browserHistory.push(`/users`);
             return [
                 ...state.filter(user => user._id !== action.user._id),
                 Object.assign({}, newUser),

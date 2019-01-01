@@ -25,17 +25,20 @@ class NewUser extends React.Component {
         this.updateDate = this.updateDate.bind(this)
     }
 
+
     updateDate(date) {
         let user = this.state.user;
         user['eventDate'] = date;
         console.log('result after date picker: ', user['eventDate']);
         Validator.validateDate(date);
         if (Validator.validateDate(date) === true) {
-            this.setState({isDateValid: true})
-            console.log("isDateValid: ", this.state.isDateValid)
+            // this.setState({isDateValid: true})
+            this.setState({
+                isDateValid: true
+            }, () => this.state.isDateValid)
         }
         else {
-            this.setState({isDateValid: false})
+            this.setState({isDateValid: false});
             console.log("isDateValid: ", this.state.isDateValid)
         }
     }

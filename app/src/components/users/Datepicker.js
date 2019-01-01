@@ -14,17 +14,20 @@ class Datepicker extends React.Component {
             date: moment(),
             transformedDate: ''
         }
+        this.handleDateChange = this.handleDateChange.bind(this);
     }
 
-    handleDateChange(date) {
-        this.setState({date: date});
-        this.setState({transformedDate: moment(date).format('YYYY-MM-DD')});
-        this.props.onChange(this.state.transformedDate);
-    }
+
+    handleDateChange = date => {
+        this.setState({date: date}, () => {
+            console.log(this.state.date)
+            this.setState({transformedDate: date.format('YYYY-MM-DD')});
+            this.props.onChange(this.state.transformedDate);
+        });
+    };
 
 
     render() {
-
         return (
             <SingleDatePicker
                 showClearDate={false}
@@ -38,7 +41,7 @@ class Datepicker extends React.Component {
                 inputIconPosition="after"
                 small={true}
                 block={false}
-                required= {true}
+                required={true}
                 numberOfMonths={1}
                 date={this.state.date}
                 onDateChange={date => this.handleDateChange(date)}
