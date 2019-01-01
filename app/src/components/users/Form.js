@@ -18,21 +18,18 @@ class Form extends React.Component {
                     <TextInput
                         name="firstName"
                         label="First Name"
-                        placeholder="first name"
                         value={this.props.user.firstName}
                         onChange={this.props.onChange}/>
 
                     <TextInput
                         name="lastName"
                         label="Last Name"
-                        placeholder="last name"
                         value={this.props.user.lastName}
                         onChange={this.props.onChange}/>
 
                     <TextInput
                         name="email"
                         label="Email"
-                        placeholder="email"
                         value={this.props.user.email}
                         onChange={this.props.onChange}/>
                     {this.props.emailValid ?
@@ -44,7 +41,7 @@ class Form extends React.Component {
                         onChange={this.props.dateHandler}
                     />
                     <br/>
-                    <br/>
+
                     <input
                         type="submit"
                         className="btn btn-primary"

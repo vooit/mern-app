@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/usersActions'
 import PropTypes from 'prop-types';
 
+
 class User extends React.Component {
 
     static propTypes = {

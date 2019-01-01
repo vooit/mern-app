@@ -20,7 +20,6 @@ class Datepicker extends React.Component {
 
     handleDateChange = date => {
         this.setState({date: date}, () => {
-            console.log(this.state.date)
             this.setState({transformedDate: date.format('YYYY-MM-DD')});
             this.props.onChange(this.state.transformedDate);
         });
@@ -29,7 +28,6 @@ class Datepicker extends React.Component {
 
     shouldComponentUpdate(nextProps, nextState) {
         if (this.state.date !== nextState.date) {
-            console.log('dueDate:  ', nextState.date);
             this.setState({transformedDate: nextState.date.format('YYYY-MM-DD')});
             this.props.onChange(this.state.transformedDate);
 
