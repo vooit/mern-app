@@ -2,10 +2,7 @@ import React from 'react';
 import UsersList from './UsersList';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
-// import {bindActionCreators} from 'redux';
-// import * as usersActions from '../../actions/usersActions';
-// import NewUser from './NewUser';
-// import * as actions from '../../actions/userActions';
+
 
 class Users extends React.Component {
 

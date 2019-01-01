@@ -27,7 +27,7 @@ export function postUser(user) {
 export function deleteUser(user) {
     return function (dispatch) {
         return api.deleteUser(user).then(() => {
-            console.log(`Deleted ${user.id}`)
+            console.log(`Deleted ${user._id}`)
             dispatch(deleteUserSuccess(user));
             return;
         }).catch(error => {
