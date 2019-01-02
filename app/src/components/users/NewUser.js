@@ -51,7 +51,7 @@ class NewUser extends React.Component {
         user[field] = event.target.value;
         this.setState({user: user});
         if (user['email'].length > 1 &&
-            user['email'].indexOf("@") === -1) {
+            !user['email'].match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
             this.setState({isEmailValid: true})
         }
         else {

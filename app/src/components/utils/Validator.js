@@ -11,9 +11,9 @@ export default class validator {
     }
 
     static validateEmail(state) {
-        let regexp = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+        let regexp = /^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i
         // if (state.length && state.indexOf("@") !== -1) {
-        if (state.length && regexp.test(state)) {
+        if (state.length && state.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
             return true
         }
         else return false
