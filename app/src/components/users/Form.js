@@ -25,6 +25,11 @@ class Form extends React.Component {
         return (
             <div className="col-12">
                 <form>
+                    <Datepicker
+                        date={this.props.user.eventDate}
+                        onChange={this.props.dateHandler}
+                    />
+                    <br/>
 
                     <TextInput
                         name="firstName"
@@ -47,11 +52,6 @@ class Form extends React.Component {
                         <span className="alert alert-danger">Email is required an must contain "@"</span> : null}
                     <br/>
 
-                    <Datepicker
-                        date={this.props.user.eventDate}
-                        onChange={this.props.dateHandler}
-                    />
-                    <br/>
 
                     <input
                         type="submit"

@@ -6,7 +6,8 @@ const UsersList = ({users}) => {
 
     let usersList = users ?
         users.map((user, index) =>
-            <li className="list-group-item" key={index}><Link to={'/users/' + user._id}>{index + 1}. {user.firstName} {user.lastName}</Link></li>
+            <li className="list-group-item" key={index}><Link
+                to={'/users/' + user._id}>{index + 1}. {user.firstName} {user.lastName}</Link></li>
         ) : <span>no results fetched</span>;
 
 
@@ -17,8 +18,8 @@ const UsersList = ({users}) => {
     );
 };
 
-
 UsersList.propTypes = {
     users: PropTypes.array.isRequired
 };
+
 export default UsersList;

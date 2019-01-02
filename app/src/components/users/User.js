@@ -9,7 +9,6 @@ class User extends React.Component {
     static propTypes = {
         user: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired
-
     }
 
     onDeleteUser = () => {
