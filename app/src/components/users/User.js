@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 class User extends React.Component {
 
     static propTypes = {
-        user: PropTypes.object.isRequired
+        user: PropTypes.object.isRequired,
+        actions: PropTypes.object.isRequired
+
     }
 
     onDeleteUser = () => {
@@ -34,6 +36,9 @@ class User extends React.Component {
     }
 };
 
+
+
+
 function mapStateToProps(state, ownProps) {
 
     let user = {firstName: '', lastName: '', email: '', eventDate: ''};
@@ -51,5 +56,7 @@ function mapDispatchToProps(dispatch) {
         }
     })
 }
+
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(User);

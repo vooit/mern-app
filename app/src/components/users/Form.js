@@ -2,12 +2,23 @@ import React from 'react';
 import TextInput from './TextInput';
 import Datepicker from './Datepicker';
 import 'react-dates/lib/css/_datepicker.css';
+import PropTypes from 'prop-types';
 
 
 class Form extends React.Component {
     constructor(props) {
         super(props)
     }
+    static propTypes = {
+        user: PropTypes.object.isRequired,
+        onSave: PropTypes.func.isRequired,
+        onChange: PropTypes.func.isRequired,
+        valid: PropTypes.bool.isRequired,
+        emailValid: PropTypes.bool.isRequired,
+        dateHandler: PropTypes.func.isRequired
+    }
+
+
 
     render() {
 
@@ -50,12 +61,10 @@ class Form extends React.Component {
                         onClick={this.props.onSave}/>
 
                 </form>
-                <p>is Valid {this.props.valid}</p>
             </div>
         );
     }
 }
-
 
 export default Form;
 

@@ -2,6 +2,7 @@ import React from 'react';
 import UsersList from './UsersList';
 import {connect} from 'react-redux';
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 
 
 class Users extends React.Component {
@@ -29,7 +30,10 @@ class Users extends React.Component {
         );
     }
 }
-
+Users.propTypes = {
+    users: PropTypes.array.isRequired,
+    children: PropTypes.object
+};
 const mapStateToProps = (state, ownProps) => ({users: state.users});
 
 export default connect(mapStateToProps)(Users);

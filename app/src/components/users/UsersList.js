@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router';
+import PropTypes from 'prop-types';
 
 const UsersList = ({users}) => {
 
@@ -16,4 +17,8 @@ const UsersList = ({users}) => {
     );
 };
 
+
+UsersList.propTypes = {
+    users: PropTypes.array.isRequired
+};
 export default UsersList;
