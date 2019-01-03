@@ -20,7 +20,7 @@ export default function userReducer(state = initialState.users, action) {
                 return user.id === action.user.id
             })
             newState.splice(indexOfUserToDelete, 1);
-            // browserHistory.push('/users');
+            browserHistory.push('/users');
             return newState;
         }
         default:

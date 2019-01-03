@@ -4,17 +4,14 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 
-
 class Users extends React.Component {
-
-
     render() {
         const users = this.props.users;
 
         return (
             <div className="col-md-12">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-6 users">
                         <h1>Users
                             <Link to={'/users/new'}
                                   className="btn btn-primary ml-4">add new user</Link>
