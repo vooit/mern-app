@@ -6,13 +6,13 @@ const UsersList = ({users}) => {
 
     let usersList = users ?
         users.map((user, index) =>
-            <li className="list-group-item" key={index}><Link
+            <li className="user__list-item list-group-item" key={index}><Link
                 to={'/users/' + user._id}>{index + 1}. {user.firstName} {user.lastName}</Link></li>
         ) : <span>no results fetched</span>;
 
 
     return (
-        <ul>
+        <ul className="user__list">
             {usersList}
         </ul>
     );

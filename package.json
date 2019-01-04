@@ -22,8 +22,13 @@
     "source-map-support": "^0.5.9"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^1.0.0",
     "create-react-class": "^15.6.3",
     "enzyme": "^3.8.0",
-    "enzyme-adapter-react-15": "^1.2.0"
+    "enzyme-adapter-react-15": "^1.2.0",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3",
+    "supertest": "^3.3.0"
   }
 }

@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 class User extends React.Component {
 
     static propTypes = {
-        user: PropTypes.object.isRequired,
-        actions: PropTypes.object.isRequired
+        user: PropTypes.object.isRequired
+        // actions: PropTypes.object.isRequired
     }
 
     onDeleteUser = () => {
@@ -18,12 +18,12 @@ class User extends React.Component {
 
     render() {
         return (
-            <div className="col-md-8 col-md-offset-2">
+            <div className="user__info-data col-md-8 col-md-offset-2">
                 <h1>User Data</h1>
-                <p>first name: {this.props.user.firstName}</p>
-                <p>last name: {this.props.user.lastName}</p>
-                <p>email: {this.props.user.email}</p>
-                <p>event date: {this.props.user.eventDate}</p>
+                <p className="user__info-element">first name: {this.props.user.firstName}</p>
+                <p className="user__info-element">last name: {this.props.user.lastName}</p>
+                <p className="user__info-element">email: {this.props.user.email}</p>
+                <p className="user__info-element">event date: {this.props.user.eventDate}</p>
                 <br/>
                 <button
                     onClick={this.onDeleteUser}

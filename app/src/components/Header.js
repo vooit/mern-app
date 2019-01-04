@@ -5,7 +5,6 @@ import Toolbar from '@material-ui/core/Toolbar';
 
 const Header = () => {
     return (
-
         <AppBar position="static">
             <Toolbar>
                 <IndexLink to="/" activeClassName="active">

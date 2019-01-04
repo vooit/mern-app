@@ -1,7 +1,7 @@
 import React from 'react';
 import {mount} from 'enzyme';
 
-import Header from '../Header';
+import Header from '../components/Header';
 
 describe('Header', () => {
     it('wraps content in a div with', () => {

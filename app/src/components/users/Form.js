@@ -6,16 +6,13 @@ import PropTypes from 'prop-types';
 
 
 class Form extends React.Component {
-    constructor(props) {
-        super(props)
-    }
+
     static propTypes = {
         user: PropTypes.object.isRequired,
         onSave: PropTypes.func.isRequired,
         onChange: PropTypes.func.isRequired,
         valid: PropTypes.bool.isRequired,
-        emailValid: PropTypes.bool.isRequired,
-        dateHandler: PropTypes.func.isRequired
+        emailValid: PropTypes.bool.isRequired
     }
 
 
@@ -24,7 +21,7 @@ class Form extends React.Component {
 
         return (
             <div className="col-12">
-                <form>
+                <form className="new-form">
                     <Datepicker
                         date={this.props.user.eventDate}
                         onChange={this.props.dateHandler}
