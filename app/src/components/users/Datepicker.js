@@ -30,7 +30,6 @@ class Datepicker extends React.Component {
         if (this.state.date !== nextState.date) {
             this.setState({transformedDate: nextState.date.format('YYYY-MM-DD')});
             this.props.onChange(this.state.transformedDate);
-
         }
         return true
 

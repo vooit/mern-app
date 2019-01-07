@@ -1,4 +1,5 @@
-import mongoose from 'mongoose';
+let mongoose = require("mongoose");
+// import mongoose from 'mongoose';
 
 var validateEmail = function (email) {
     var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -28,4 +29,5 @@ var Schema = mongoose.Schema({
 }, {
     versionKey: false
 });
-export default mongoose.model('User', Schema);
+// export default mongoose.model('User', Schema);
+module.exports = mongoose.model('User', Schema)

@@ -1,3 +1,12 @@
+// // var babel-polyfill = require("babel-polyfill");
+// var express = require("express");
+// var path = require("path");
+// var bodyParser = require("bodyParser");
+// var mongoose = require("mongoose");
+// var SourceMapSupport = require("SourceMapSupport");
+// var userRoutes = require("userRoutes");
+
+//
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
@@ -10,6 +19,7 @@ const app = express();
 app.use(function(req,res,next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header('Content-Type', 'application/json');
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     if (req.method === 'OPTIONS') {
         res.sendStatus(200);
