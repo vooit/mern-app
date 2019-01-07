@@ -1,12 +1,3 @@
-// // var babel-polyfill = require("babel-polyfill");
-// var express = require("express");
-// var path = require("path");
-// var bodyParser = require("bodyParser");
-// var mongoose = require("mongoose");
-// var SourceMapSupport = require("SourceMapSupport");
-// var userRoutes = require("userRoutes");
-
-//
 import express from 'express';
 import path from 'path';
 import bodyParser from 'body-parser';
@@ -52,6 +43,7 @@ app.get('/', (req,res) => {
 });
 
 app.use((req, res, next) => {
+    res.status(404).send({status: 404, message: '404 page'});
     res.status(404).send('<h2 align=center>Page Not Found!</h2>');
 });
 

@@ -4,6 +4,7 @@ let User = require('../backend/models/user.server.model');
 
 
 var chai = require('chai');
+chai.config.includeStack = true;
 var chaiHttp = require('chai-http');
 var expect = require('chai').expect;
 var supertest = require("supertest");
@@ -23,13 +24,17 @@ describe('Api test', function () {
 
 
     it('should list ALL blobs on /api GET', function (done) {
-        server.get('/api')
-            .expect("Content-type", "/application/json/")
+        server.get('/api/users')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
             .expect(200)
             .end(function (err, res) {
-                // console.log(res.body)
+                if (err)
+                    throw err;
+                console.log(res.body)
                 expect(res.status).to.equal(200);
                 res.should.be.json;
+                res.body.should.not.be.empty;
                 expect(res.body.success).to.equal(true);
                 expect(res.body.users).to.be.an('array');
                 expect(res.body.users[0]).to.be.an('object');
@@ -40,47 +45,35 @@ describe('Api test', function () {
                 done();
             });
     });
-    // it("should add user to ubj", function (done) {
-    //     let user = {
-    //         firstName: "John",
-    //         lastName: "Rambo",
-    //         email: "www@wp.pl",
-    //         eventDate: "22-12-1982"
-    //     };
-    //
-    //     server.post('/')
-    //         .send(user)
-    //         .expect("Content-type", /json/)
-    //         .expect(200)
-    //         .end(function (err, res) {
-    //             console.log(err, 'should add user to ubj')
-    //             expect(res.status).to.equal(200);
-    // res.should.be.a('object');
-    // res.should.have.property(Object('success', 'message'));
-    // res.error.should.equal(false);
-
-    //             done();
-    //         });
-    // });
-    // describe('/DELETE/:id user', () => {
-    //     it('it should DELETE an user', (done) => {
-    //         let user = {
-    //             firstName: "John",
-    //             lastName: "Rambo",
-    //             email: "www@wp.pl",
-    //             eventDate: "22-12-1982"
-    //         }
-    //         server.user.save((err, user) => {
-    //             chai.request(server)
-    //                 .delete('/api/' + user.id)
-    //                 .end((err, res) => {
-    //                     res.should.have.status(200);
-    //                     res.body.should.be.a('object');
-    //                     res.body.should.have.property('message').eql('message:' + user.firstName + ' deleted successfully');
-    //                     res.body.result.should.have.property('ok').eql(1);
-    //                     done();
-    //                 });
-    //         });
+    // it('should add a SINGLE blob on /blobs POST', function (done) {
+    //     this.timeout(300);
+    //     server.post('/api/users')
+    //         .send(user = {
+    //                 "firstName": "Jaaohn",
+    //                 "lastName": "Raaambo",
+    //                 "email": "wwwaa@wp.pl",
+    //                 "eventDate": "22-12-1982"
+    //             }
+    //         ).end(function (err, res) {
+    //         expect(res.status).to.equal(200);
+    //         // expect(res.body.success).to.equal(false);
+    //         // console.log(res.body)
+    //         expect(res.body).be.a('object');
+    //         done();
     //     });
     // });
+
+    it('should delete a task', function (done) {
+        server.get('/random')
+            .expect(404)
+            .end(function (err, res) {
+                console.log(res.body.status)
+                expect(res.body).to.be.an('object');
+                expect(res.body).have.property('message');
+                expect(res.body.message).equal('404 page');
+                expect(res.status).to.equal(404);
+                done();
+            });
+    });
+
 })
