@@ -18,7 +18,7 @@ export const addUser = (req, res) => {
             return res.json({'success': false, 'message': 'Some Error'});
         }
         console.log(user);
-        return res.json({'success': true, 'message': 'User added successfully', user});
+        return res.json({'success': true, 'message': 'User ' + user.firstName + ' added successfully', user});
     })
 };
 export const updateUser = (req, res) => {
