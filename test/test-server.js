@@ -23,16 +23,15 @@ describe('Api test', function () {
 
     it('should list ALL blobs on /api GET', function (done) {
         server.get('/api/users')
-            .set('Accept', 'application/json')
+        // .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
             .expect(200)
             .end(function (err, res) {
                 if (err)
                     throw err;
-                console.log(res.body)
                 expect(res.status).to.equal(200);
-                res.should.be.json;
-                res.body.should.not.be.empty;
+                // res.should.be.json;
+                // res.body.should.not.be.empty;
                 expect(res.body.success).to.equal(true);
                 expect(res.body.users).to.be.an('array');
                 expect(res.body.users[0]).to.be.an('object');
@@ -44,24 +43,61 @@ describe('Api test', function () {
     });
 
 
-    it('should add a SINGLE user on POST', function (done) {
+    // it('should ADD a user on POST', function (done) {
+    //     const user = {
+    //         user: {
+    //             firstName: "sadwssjv",
+    //             lastName: "sasdoo",
+    //             email: "wpadb@wp.pl",
+    //             eventDate: "10-12-1499"
+    //         }
+    //     }
+    //     server.post('/api/users')
+    //         .send(user).end(function (err, res) {
+    //         console.log(res.body.user)
+    //         expect(res.status).to.equal(200);
+    //         expect(res.body).be.a('object');
+    //         expect(res.body.user).be.a('object');
+    //         expect(res.body.success).to.equal(true);
+    //         expect(res.body.message).to.equal("User added successfully");
+    //         expect(res.body.user).have.property('firstName');
+    //         expect(res.body.user).have.property('lastName');
+    //         expect(res.body.user).have.property('email');
+    //         expect(res.body.user).have.property('eventDate');
+    //         done();
+    //     });
+    // });
+
+
+    it('it should DELETE a user by _id', (done) => {
+
         const user = {
-            user : {
-            firstName: "asdfsadsd",
-            lastName: "bo",
-            email: "Dasda@wp.pl",
-            eventDate: "10-11-1739"
-        }}
-        server.post('/api/users')
-            .send(user).end(function (err, res) {
-            expect(res.status).to.equal(200);  expect(res.body).be.a('object');
-            expect(res.body.user).be.a('object');
-            expect(res.body.success).to.equal(true);
-            expect(res.body.message).to.equal("User added successfully");
-            // let addedUser = res.body.user[0]
-            done();
-        });
+            user: {
+                firstName: "aaa",
+                lastName: "aaa",
+                email: "aaa@wp.pl",
+                eventDate: "10-12-1299"
+            }
+        }
+
+
+        // let user = new User({firstName: "John", lastName: "Doe", email: "wp@wp.pl", eventDate: "10-12-1778"});
+
+
+        //paste user _id from database
+        server.delete('/api/users/' + "5c35229b13a35d17e8eca1f8")
+            .expect('Content-Type', /json/)
+            .expect(200)
+            .end((err, res) => {
+                console.log('deleted', res)
+                expect(res.status).to.equal(200);
+                expect(res.body.success).to.equal(true);
+                res.body.should.be.a('object');
+                res.body.should.have.property('message').eql(res.body.user.firstName + ' deleted successfully');
+                done();
+            });
     });
+
 
     it('should return 404', function (done) {
         server.get('/random')

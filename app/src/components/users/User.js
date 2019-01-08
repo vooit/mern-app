@@ -12,7 +12,6 @@ class User extends React.Component {
     }
 
     onDeleteUser = () => {
-        console.log(this.props.user);
         this.props.deleteUser(this.props.user);
     };
 
