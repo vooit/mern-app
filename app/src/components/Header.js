@@ -8,9 +8,9 @@ const Header = () => {
         <AppBar position="static">
             <Toolbar>
                 <IndexLink to="/" activeClassName="active">
-                    <span className="btn btn-success">Home</span>
+                    <span className="btn btn-primary">Home</span>
                 </IndexLink>
-                <Link to="/users" activeClassName="active">  <span className="btn btn-success ml-4">Users</span></Link>
+                <Link to="/users" activeClassName="active">  <span className="btn btn-primary ml-4">Users</span></Link>
             </Toolbar>
         </AppBar>
     );

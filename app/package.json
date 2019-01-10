@@ -25,6 +25,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:watch": "jest --watchAll --verbose",
+    "test:coverage": "jest --verbose --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -42,6 +44,7 @@
     "enzyme-adapter-react-16": "^1.7.1",
     "fetch-mock": "^7.3.0",
     "jest": "^23.6.0",
+    "nock": "^10.0.6",
     "react-test-renderer": "^16.7.0",
     "redux-mock-store": "^1.5.3"
   },

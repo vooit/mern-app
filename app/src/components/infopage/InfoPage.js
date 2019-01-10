@@ -1,7 +1,7 @@
 import React from 'react';
-import './HomePage.css';
+import './InfoPage.css';
 
-export default class HomePage extends React.Component {
+export default class InfoPage extends React.Component {
     render() {
         return (
             <div>
@@ -16,6 +16,8 @@ export default class HomePage extends React.Component {
                         <li>Bootstrap / ReactStrap</li>
                         <li>Material UI</li>
                     </ul>
+                    <h4>To run Mocha/Chai backend unit test in root run: mocha </h4>
+                    <h4>To run Enzyme/Jest unit test in root run: npm test --watch</h4>
                 </div>
             </div>
         )

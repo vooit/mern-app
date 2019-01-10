@@ -17,3 +17,7 @@ ul {
     margin: 0;
     padding: 0;
 }
+
+.active span {
+    border: 2px solid darkblue;
+}
